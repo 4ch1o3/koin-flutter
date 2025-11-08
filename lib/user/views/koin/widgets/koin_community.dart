@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:koin/common/const/colors.dart';
+import 'package:koin/user/views/kommunity/views/board_screen.dart';
 
 class KoinCommunity extends StatelessWidget {
   const KoinCommunity({super.key});
@@ -11,27 +12,27 @@ class KoinCommunity extends StatelessWidget {
       {
         'title': '커피 제대로 하는 집 어디 없나요?',
         'content': '추천 부탁합니다.',
-        'time': '1 minute ago'
+        'time': '1 minute ago',
       },
       {
         'title': '오늘 날씨가 정말 좋네요!',
         'content': '산책하기 딱 좋은 날씨입니다.',
-        'time': '5 minutes ago'
+        'time': '5 minutes ago',
       },
       {
         'title': '플러터 너무 재밌어요!',
         'content': '더 공부하고 싶습니다.',
-        'time': '10 minutes ago'
+        'time': '10 minutes ago',
       },
       {
         'title': '커피 제대로 하는 집 어디 없나요?',
         'content': '추천 부탁합니다.',
-        'time': '1 minute ago'
+        'time': '1 minute ago',
       },
       {
         'title': '오늘 날씨가 정말 좋네요!',
         'content': '산책하기 딱 좋은 날씨입니다.',
-        'time': '5 minutes ago'
+        'time': '5 minutes ago',
       },
     ];
 
@@ -74,21 +75,31 @@ class KoinCommunity extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(
-                  '전체보기 →',
-                  style: TextStyle(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => const BoardScreen(boardName: '전체 게시판'),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    '전체보기 →',
+                    style: TextStyle(
                       color: PRIMARY_COLOR,
                       fontFamily: 'Pretendard',
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
-                      letterSpacing: -0.2),
-                  textAlign: TextAlign.right,
+                      letterSpacing: -0.2,
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               ],
             ),
-
             const SizedBox(height: 16),
-
             ListView.separated(
               itemCount: posts.length,
               shrinkWrap: true,
@@ -101,11 +112,12 @@ class KoinCommunity extends StatelessWidget {
                   post['time']!,
                 );
               },
-              separatorBuilder: (context, index) => Container(
-                height: 0.5,
-                color: const Color(0xFFD9D9D9),
-                margin: const EdgeInsets.symmetric(horizontal: 12),
-              ),
+              separatorBuilder:
+                  (context, index) => Container(
+                    height: 0.5,
+                    color: const Color(0xFFD9D9D9),
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
+                  ),
             ),
           ],
         ),

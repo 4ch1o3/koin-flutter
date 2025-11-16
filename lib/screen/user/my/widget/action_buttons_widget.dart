@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:koin/common/const/colors.dart';
+import '../view/likes_screen.dart';
+import '../view/comments_screen.dart';
+import '../view/scraps_screen.dart';
 
 class ActionButtonsWidget extends StatelessWidget {
   const ActionButtonsWidget({super.key});
@@ -12,10 +15,7 @@ class ActionButtonsWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-          color: GRAY_COLOR,
-          width: 1,
-        ),
+        border: Border.all(color: GRAY_COLOR, width: 1),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -24,18 +24,37 @@ class ActionButtonsWidget extends StatelessWidget {
           _buildActionButton(
             iconPath: 'asset/img/icon/my_screen/Like.png',
             label: '좋아요',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LikesScreen()),
+              );
+            },
           ),
           _buildActionButton(
             iconPath: 'asset/img/icon/my_screen/Comment.png',
             label: '댓글',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CommentsScreen()),
+              );
+            },
           ),
           _buildActionButton(
             iconPath: 'asset/img/icon/my_screen/Scrap.png',
             label: '스크랩',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ScrapsScreen()),
+              );
+            },
           ),
           _buildActionButton(
             iconPath: 'asset/img/icon/my_screen/Setting.png',
             label: '기타',
+            onTap: null,
           ),
         ],
       ),
@@ -45,16 +64,13 @@ class ActionButtonsWidget extends StatelessWidget {
   Widget _buildActionButton({
     required String iconPath,
     required String label,
+    VoidCallback? onTap,
   }) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Column(
         children: [
-          Image.asset(
-            iconPath,
-            width: 32,
-            height: 32,
-          ),
+          Image.asset(iconPath, width: 32, height: 32),
           Text(
             label,
             style: const TextStyle(

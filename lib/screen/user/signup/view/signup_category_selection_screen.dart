@@ -70,13 +70,13 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
       MaterialPageRoute(
         builder:
             (context) => PersonalDetailsScreen(
-              selectedNationality: widget.selectedNationality,
-              selectedLanguage: widget.selectedLanguage,
-              selectedResidenceType: widget.selectedResidenceType,
-              selectedResidencePeriod: widget.selectedResidencePeriod,
-              selectedCategories: _selectedCategories,
-              selectedRegions: _selectedRegions,
-              selectedCultures: _selectedCultures,
+              // selectedNationality: widget.selectedNationality,
+              // selectedLanguage: widget.selectedLanguage,
+              // selectedResidenceType: widget.selectedResidenceType,
+              // selectedResidencePeriod: widget.selectedResidencePeriod,
+              // selectedCategories: _selectedCategories,
+              // selectedRegions: _selectedRegions,
+              // selectedCultures: _selectedCultures,
             ),
       ),
     );
@@ -86,9 +86,9 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: TRANSPARENT_COLOR,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: TRANSPARENT_COLOR,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: BLACK_COLOR),

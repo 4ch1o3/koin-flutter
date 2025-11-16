@@ -34,7 +34,7 @@ class _SecurityCodeScreenState extends State<SecurityCodeScreen> {
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.transparent),
+        border: Border.all(color: TRANSPARENT_COLOR),
       ),
     );
 

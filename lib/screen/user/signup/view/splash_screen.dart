@@ -39,7 +39,7 @@ class SplashScreenUI extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [PRIMARY_COLOR, SECONDARY_COLOR],
-            begin: FractionalOffset(0, 0.4),
+            begin: FractionalOffset(-0.2, 0.7),
             end: Alignment.bottomRight,
           ),
         ),

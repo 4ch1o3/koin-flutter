@@ -9,5 +9,34 @@
   "signIn_email_email": "이메일",
   "signIn_email_password": "비밀번호",
 
-  "signIn_email_loginButtonLabel": "로그인"
+  "signIn_email_loginButtonLabel": "로그인",
+
+  "signUp_personalInfo_title_part1": " ",
+  "signUp_personalInfo_title_part2": "",
+  "signUp_personalInfo_title_part3": " ",
+  "signUp_personalInfo_label_firstName": "이름",
+  "signUp_personalInfo_label_lastName": "성",
+  "signUp_personalInfo_label_birthday": "생년월일",
+  "signUp_personalInfo_label_gender": "성별",
+  "signUp_personalInfo_label_email": "이메일",
+
+  "signUp_emailVerifyCode_title_part1": "",
+  "signUp_emailVerifyCode_title_part2": "",
+  "signUp_emailVerifyCode_title_part3": "",
+  "signUp_emailVerifyCode_resend_hintText": "",
+  "signUp_emailVerifyCode_resend_label": "",
+
+  "signUp_setPassword_title_part1": "",
+  "signUp_setPassword_title_part2": "",
+  "signUp_setPassword_title_part3": "",
+  "signUp_setPassword_label_newPassword": "새 비밀번호",
+  "signUp_setPassword_label_confirmPassword": "비밀번호 재확인",
+
+  "signUp_visitInfo_title_part1": "코인을 더욱 유용하게 사용하기 위해\n",
+  "signUp_visitInfo_title_part2": "방문 정보",
+  "signUp_visitInfo_title_part3": "를 알려주세요.",
+  "signUp_visitInfo_label_nationality": "국적",
+  "signUp_visitInfo_label_language": "언어",
+  "signUp_visitInfo_label_residenceType": "방문 목적",
+  "signUp_visitInfo_label_residencePeriod": "방문 기간"
 }

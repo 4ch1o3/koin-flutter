@@ -32,7 +32,7 @@ class SubmitButton extends StatelessWidget {
                   stops: [0, 1],
                 )
                 : LinearGradient(
-                  colors: [GrayScale.gray100, GrayScale.gray100],
+                  colors: [GrayScale.gray500, GrayScale.gray500],
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                 ),

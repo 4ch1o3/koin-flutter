@@ -87,15 +87,15 @@ class MainLoginScreen extends StatelessWidget {
             spacing: 32,
             children: [
               Image.asset('asset/img/icon/logo.png', width: 168),
-              Text(
-                'Koin',
-                style: Theme.of(
-                  context,
-                ).textTheme.displayLarge?.copyWith(color: PRIMARY_COLOR),
-              ),
+              // Text(
+              //   'Koin',
+              //   style: Theme.of(
+              //     context,
+              //   ).textTheme.displayLarge?.copyWith(color: PRIMARY_COLOR),
+              // ),
             ],
           ),
-          const Spacer(flex: 2),
+          const Spacer(flex: 3),
           Column(
             spacing: 24,
             children: [

@@ -30,6 +30,7 @@ class GradientContainer extends StatelessWidget {
       body: Stack(
         children: [
           Container(
+            width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [GRADIENT_COLOR, GrayScale.white],
@@ -38,7 +39,7 @@ class GradientContainer extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: child,
             ),
           ),

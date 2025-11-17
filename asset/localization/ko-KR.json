@@ -38,5 +38,12 @@
   "signUp_visitInfo_label_nationality": "국적",
   "signUp_visitInfo_label_language": "언어",
   "signUp_visitInfo_label_residenceType": "방문 목적",
-  "signUp_visitInfo_label_residencePeriod": "방문 기간"
+  "signUp_visitInfo_label_residencePeriod": "방문 기간",
+
+  "signUp_category_title_part1": "내가 관심 있는 ",
+  "signUp_category_title_part2": "한국 관련 키워드",
+  "signUp_category_title_part3": "를\n자유롭게 선택해주세요.",
+  "signUp_category_subtitle_category": "카테고리",
+  "signUp_category_subtitle_region": "지역",
+  "signUp_category_subtitle_culture": "문화"
 }

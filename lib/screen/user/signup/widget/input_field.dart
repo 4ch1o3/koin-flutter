@@ -9,8 +9,9 @@ class InputField extends StatefulWidget {
     required this.inputTextController,
     required this.labelText,
     required this.type,
+    this.hasSuffixIcon,
     this.isEmailValid,
-    this.showPassword,
+
     this.isPasswordValid,
     this.hintText,
   });
@@ -20,17 +21,26 @@ class InputField extends StatefulWidget {
   final InputType type;
   final String? hintText;
   final bool? isEmailValid;
-  final bool? showPassword;
+
   final bool? isPasswordValid;
+
+  final bool? hasSuffixIcon;
 
   @override
   State<StatefulWidget> createState() => _InputFieldState();
 }
 
 class _InputFieldState extends State<InputField> {
+  bool _showPassword = false;
   @override
   void initState() {
     super.initState();
+  }
+
+  void _toggleVisibility() {
+    setState(() {
+      _showPassword = !_showPassword;
+    });
   }
 
   // TODO: if input type is email, add email validation
@@ -41,9 +51,8 @@ class _InputFieldState extends State<InputField> {
       !(widget.type == InputType.email && widget.isEmailValid == null) ||
           !(widget.type == InputType.password &&
               widget.isPasswordValid == null &&
-              widget.showPassword == null),
+              widget.hasSuffixIcon == null),
     );
-
     TextInputType keyboardType;
 
     if (widget.type == InputType.email) {
@@ -68,7 +77,7 @@ class _InputFieldState extends State<InputField> {
           ),
           TextField(
             controller: widget.inputTextController,
-            obscureText: (widget.type == InputType.password ? true : false),
+            obscureText: !_showPassword,
 
             keyboardType: keyboardType,
             cursorColor: GrayScale.black,
@@ -79,6 +88,8 @@ class _InputFieldState extends State<InputField> {
               hintStyle: Theme.of(
                 context,
               ).textTheme.headlineSmall?.copyWith(color: GrayScale.gray400),
+
+              // NOTE: label makes small title which is animated when focused
               // labelText: widget.labelText,
               // labelStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
               //   fontWeight: FontWeight.w500,
@@ -92,6 +103,19 @@ class _InputFieldState extends State<InputField> {
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: PRIMARY_COLOR, width: 2),
               ),
+              suffixIcon:
+                  widget.hasSuffixIcon != null
+                      ? IconButton(
+                        splashColor: Colors.transparent,
+                        enableFeedback: false,
+                        hoverColor: Colors.transparent,
+                        onPressed: () => _toggleVisibility(),
+                        icon: Image.asset(
+                          'asset/img/icon/toggle_show_password.png',
+                          width: 16,
+                        ),
+                      )
+                      : null,
             ),
           ),
           const SizedBox(height: 8),

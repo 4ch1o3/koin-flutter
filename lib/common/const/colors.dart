@@ -23,6 +23,7 @@ class GrayScale {
   static const Color gray100 = Color(0xFFF5F5F5);
   static const Color white = Color(0xFFFFFFFF);
 
+  static const Color midgrey = Color(0xFFC1CFE9);
   static const Color black_80 = Color(0xCC000000);
   static const Color black_50 = Color(0x80000000);
   static const Color black_20 = Color(0x33000000);

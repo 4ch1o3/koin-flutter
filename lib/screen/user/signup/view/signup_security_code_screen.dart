@@ -39,8 +39,8 @@ class _SecurityCodeScreenState extends State<SecurityCodeScreen> {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
+      width: 36,
+      height: 36,
       textStyle: const TextStyle(fontSize: 22, color: GrayScale.gray500),
       decoration: BoxDecoration(
         color: GrayScale.gray200,
@@ -105,13 +105,15 @@ class _SecurityCodeScreenState extends State<SecurityCodeScreen> {
               SizedBox(
                 width: 280,
                 child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
+                  onPressed: () => {},
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusGeometry.circular(10),
                     ),
-                    // TODO: apply new color: midgrey
-                    backgroundColor: GrayScale.gray300,
+                    backgroundColor: PRIMARY_COLOR,
+                    // TODO: disable for while{add timer} when clicked
+                    disabledBackgroundColor: GrayScale.midgrey,
+
                     elevation: 0,
                     splashFactory: NoSplash.splashFactory,
                   ),

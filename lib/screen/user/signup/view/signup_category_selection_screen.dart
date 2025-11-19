@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koin/common/const/colors.dart';
+import 'package:koin/screen/user/koin/view/koin_screen.dart';
 import 'package:koin/screen/user/signup/view/gradient_container.dart';
 import 'package:koin/screen/user/signup/widget/selection_section.dart';
 import 'package:koin/screen/user/signup/view/signup_personal_details_screen.dart';
@@ -70,7 +71,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder:
-            (context) => PersonalDetailsScreen(
+            (context) => KoinScreen(
               // selectedNationality: widget.selectedNationality,
               // selectedLanguage: widget.selectedLanguage,
               // selectedResidenceType: widget.selectedResidenceType,
@@ -86,114 +87,71 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return GradientContainer(
-      hasSubmitButton: true,
-      submitCallback: () {},
-      isSubmitEnabled: true,
-      submitLabel: "Next",
-
-      child: Stack(
-        children: [
-          SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20.0, 100.0, 20.0, 150.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: GrayScale.black,
-                      height: 1.4,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(text: '내가 관심 있는 '),
-                      TextSpan(
-                        text: '한국 관련 키워드',
-                        style: TextStyle(color: PRIMARY_COLOR),
-                      ),
-                      TextSpan(text: '를\n자유롭게 선택해주세요.'),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 40),
-                SelectionSection(
-                  title: '카테고리',
-                  options: _categories,
-                  selectedOptions: _selectedCategories,
-                  onToggle: (option) {
-                    setState(() {
-                      if (_selectedCategories.contains(option)) {
-                        _selectedCategories.remove(option);
-                      } else {
-                        _selectedCategories.add(option);
-                      }
-                    });
-                  },
-                ),
-                const SizedBox(height: 30),
-                SelectionSection(
-                  title: '지역',
-                  options: _regions,
-                  selectedOptions: _selectedRegions,
-                  onToggle: (option) {
-                    setState(() {
-                      if (_selectedRegions.contains(option)) {
-                        _selectedRegions.remove(option);
-                      } else {
-                        _selectedRegions.add(option);
-                      }
-                    });
-                  },
-                ),
-                const SizedBox(height: 30),
-                SelectionSection(
-                  title: '문화',
-                  options: _cultures,
-                  selectedOptions: _selectedCultures,
-                  onToggle: (option) {
-                    setState(() {
-                      if (_selectedCultures.contains(option)) {
-                        _selectedCultures.remove(option);
-                      } else {
-                        _selectedCultures.add(option);
-                      }
-                    });
-                  },
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              color: Colors.white,
-              padding: const EdgeInsets.fromLTRB(60, 20, 60, 40),
-              child: ElevatedButton(
-                onPressed: _goToNextStep,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: PRIMARY_COLOR,
-                  foregroundColor: GrayScale.white,
-                  minimumSize: const Size(double.infinity, 52),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(26),
-                  ),
-                ),
-                child: const Text(
-                  'Next',
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-            ),
-          ),
+      title: TextSpan(
+        style: Theme.of(context).textTheme.headlineLarge,
+        children: <TextSpan>[
+          TextSpan(text: '내가 관심 있는 '),
+          TextSpan(text: '한국 관련 키워드', style: TextStyle(color: PRIMARY_COLOR)),
+          TextSpan(text: '를\n자유롭게 선택해주세요.\n'),
         ],
+      ),
+      hasSubmitButton: true,
+      submitCallback: () => _goToNextStep(),
+      isSubmitEnabled: true,
+      submitLabel: "Let's start Koin!",
+
+      hasBottomTextButton: false,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 120),
+        child: Column(
+          spacing: 36,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(),
+            SelectionSection(
+              title: '카테고리',
+              options: _categories,
+              selectedOptions: _selectedCategories,
+              onToggle: (option) {
+                setState(() {
+                  if (_selectedCategories.contains(option)) {
+                    _selectedCategories.remove(option);
+                  } else {
+                    _selectedCategories.add(option);
+                  }
+                });
+              },
+            ),
+            SelectionSection(
+              title: '지역',
+              options: _regions,
+              selectedOptions: _selectedRegions,
+              onToggle: (option) {
+                setState(() {
+                  if (_selectedRegions.contains(option)) {
+                    _selectedRegions.remove(option);
+                  } else {
+                    _selectedRegions.add(option);
+                  }
+                });
+              },
+            ),
+            SelectionSection(
+              title: '문화',
+              options: _cultures,
+              selectedOptions: _selectedCultures,
+              onToggle: (option) {
+                setState(() {
+                  if (_selectedCultures.contains(option)) {
+                    _selectedCultures.remove(option);
+                  } else {
+                    _selectedCultures.add(option);
+                  }
+                });
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
